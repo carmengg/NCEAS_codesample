@@ -50,7 +50,7 @@ We can see here the red, green and blue layers (RGB).
 ```{r, out.width = "35%", out.height = "35%"}
 # -----  EXPLORING RGB LAYERS -----
 # read all bands as raster stack
-mex_rgb <- raster::stack(here('R/mexico_median_rgb.tif')) 
+mex_rgb <- raster::stack(here('Rasters/mexico_median_rgb.tif')) 
 #mex_rgb
 # looking at stack information we get that:
 #   B4 band = red
@@ -85,7 +85,7 @@ Then we can use it mask each layer of the raster stack.
 
 ```{r}
 # --- read shapefile
-mex_sf <- read_sf(here('R/stanford-zc863pb5331-shapefile/zc863pb5331.shp')) %>%
+mex_sf <- read_sf(here('Rasters/stanford-zc863pb5331-shapefile/zc863pb5331.shp')) %>%
   st_transform(crs(mex_rgb))   # match CRS
 
 # --- transform shapefile into raster using red band as guide
@@ -131,7 +131,7 @@ Since the previous raster only contained RGB bands, here I added a raster I gene
 
 ```{r}
 # --- read nir raster
-nir <- raster(here('R/mexico_median_nir.tif')) 
+nir <- raster(here('Rasters/mexico_median_nir.tif')) 
 
 # --- masking (note: had to update mask to match extent of nir raster)
 mex_rast2 <- fasterize::fasterize(mex_sf, nir)
