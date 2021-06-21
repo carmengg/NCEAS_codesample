@@ -24,7 +24,7 @@ library(knitr)
 library(here)
 ```
 
-## Introduction 
+# Introduction 
 
 In this report we use binary logistic regression to test the feasibility of using morphological characteristics to classify whether a palmetto plant is species *serenoa repens* or species *sabal etonia*. 
 The variables we use for this classification are the height (cm), widest length of the canopy (cm), widest width of the canopy perpendicular to the canopy length (cm) and number of green leaves (n) in a palmetto plant.
@@ -53,7 +53,7 @@ knitr::include_graphics(sabal)
 
 
 
-## Data exploration
+# Data exploration
 ```{r, code_folding=TRUE}
 # --- DATA SELECTION ---- 
 
@@ -189,7 +189,7 @@ however the effect size is small
 
 
 
-## Binary logistic regression
+# Binary logistic regression
 
 Based on the preliminary data visualization and analysis, it seems possible that the differences in canopy dimensions, height and number of green leaves for *serenoa repens* and *sabal etonia* plant species are significant.
 These characteristics could be used classify whether a palmetto plant belongs to either one of these species. 
@@ -227,7 +227,7 @@ blr_model <- tidy(blr_palmetto) %>%
 blr_model
 ```
 
-### Model accuracy
+## Model accuracy
 
 Based on the previous binary logistic regression we constructed a probability function $P$ dependent on a plant's height $h$ (cm), canopy length $l$ (cm), canopy width $w$ (cm) and number of green leaves $n$.
 Then $P(h,l,w,n)$ is the probability that a palmetto plant with the specified measurements being a *serenoa repens*. 
@@ -264,6 +264,6 @@ results_blr <- blr_palmetto %>%
 results_blr
 ```
 
-## Citation
+# Citation
 Abrahamson, W.G. 2019. Survival, growth and biomass estimates of two dominant palmetto species of south-central Florida from 1981 - 2017, ongoing at 5-year intervals ver 1. Environmental Data Initiative.
 https://doi.org/10.6073/pasta/f2f96ec76fbbd4b9db431c79a770c4d5
